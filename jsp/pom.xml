@@ -11,5 +11,12 @@
 
     <artifactId>jsp</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sailhe.demo</groupId>
+            <artifactId>utility</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
