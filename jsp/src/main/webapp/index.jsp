@@ -16,7 +16,7 @@
 <body>
 <% org.demo.Tester tester = new org.demo.Tester();%>
 <%= tester.toString()%>
-<% String tStr = new String("asdasdasd");%>
+<% String tStr = new String("int webapp");%>
 <%= tStr%>
 </body>
 </html>
