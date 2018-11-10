@@ -14,9 +14,14 @@
     <title>Hello world</title>
 </head>
 <body>
+
+<% org.demo.SayHello s = new org.demo.SayHello();%>
+<%= s.sayHello("World")%>
+
 <% org.demo.Tester tester = new org.demo.Tester();%>
 <%= tester.toString()%>
-<% String tStr = new String("int webapp");%>
+
+<% String tStr = new String(" --- in webapp");%>
 <%= tStr%>
 </body>
 </html>
