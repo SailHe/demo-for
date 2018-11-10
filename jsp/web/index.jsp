@@ -13,6 +13,6 @@
 </head>
 <body>
 <% SayHello sayHello = new SayHello(); %>
-<%=sayHello.sayHello("444") %>
+<%=sayHello.sayHello("dev") %>
 </body>
 </html>
