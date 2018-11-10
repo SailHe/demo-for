@@ -14,9 +14,14 @@
     <title>Hello world</title>
 </head>
 <body>
+
+<% org.demo.SayHello sayHello = new org.demo.SayHello();%>
+<%= sayHello.sayHello("world!")%>
+
 <% org.demo.Tester tester = new org.demo.Tester();%>
 <%= tester.toString()%>
-<% String tStr = new String("asdasdasd");%>
+
+<% String tStr = new String("this is a java.util.String");%>
 <%= tStr%>
 </body>
 </html>

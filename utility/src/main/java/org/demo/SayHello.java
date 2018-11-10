@@ -9,6 +9,6 @@ package org.demo;
  */
 public class SayHello {
     public String sayHello(String name){
-        return "Hello" + name + "!";
+        return "Hello " + name + "!";
     }
 }
