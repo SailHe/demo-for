@@ -1,27 +1,18 @@
-<%@ page import="org.demo.Tester" language="java" %>
-<%--nit.sailhe.demo.--%>
-<%--<%@ page import="java.util.*" language="java" %>--%>
+<%@ page import="org.demo.SayHello" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: booler
   Date: 2018/11/9
-  Time: 9:58
+  Time: 17:24
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hello world</title>
+    <title>Title</title>
 </head>
 <body>
-
-<% org.demo.SayHello sayHello = new org.demo.SayHello();%>
-<%= sayHello.sayHello("world!")%>
-
-<% org.demo.Tester tester = new org.demo.Tester();%>
-<%= tester.toString()%>
-
-<% String tStr = new String("this is a java.util.String");%>
-<%= tStr%>
+<% SayHello sayHello = new SayHello(); %>
+<%=sayHello.sayHello("444") %>
 </body>
 </html>
