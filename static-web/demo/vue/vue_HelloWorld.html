@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Vue app</title>
+    <!--<script src="https://unpkg.com/vue"></script>-->
+    <script src="../../js/lib/vue.js"></script>
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    {{ message }}
+</div>
+
+<div id="app-2">
+    <!--v-bind 特性被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊特性。-->
+    <!--它们会在渲染的 DOM 上应用特殊的响应式行为。
+    在这里，该指令的意思是：“将这个元素节点的 title 特性和 Vue 实例的 message 属性保持一致”。-->
+    <span v-bind:title="message">
+      stop The mouse some seconds to see message
+    </span>
+</div>
+
+<div id="app-3">
+    <p v-if="seen">now you see me</p>
+</div>
+
+<div id="app-4">
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+</div>
+
+<div id="demo">
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition name="fade">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+
+<!--
+Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScript 动画的一个很棒的选择
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+
+<!--一个使用 Velocity.js 的简单例子：-->
+<div id="example-4">
+    <button @click="show = !show">
+        Toggle
+    </button>
+    <transition
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+            v-on:leave="leave"
+            v-bind:css="false"
+    >
+        <p v-if="show">
+            Demo
+        </p>
+    </transition>
+</div>
+
+
+
+<script>
+    var app = new Vue({
+        //element
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: 'loaded on ' + new Date().toLocaleString()
+        }
+    });
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            seen: true
+            /*控制台输入 app3.seen = false控制消息的显示与否*/
+        }
+    });
+    new Vue({
+        el: '#demo',
+        data: {
+            show: true
+        }
+    });
+
+    var app4 = new Vue({
+        el: '#app-4',
+        data: {
+            todos: [
+                { text: '学习 JavaScript' },
+                { text: '学习 Vue' },
+                { text: '整个牛项目' }
+            ]
+        }
+    });
+
+    new Vue({
+        el: '#example-4',
+        data: {
+            show: false
+        },
+        methods: {
+            beforeEnter: function (el) {
+                el.style.opacity = 0
+                el.style.transformOrigin = 'left'
+            },
+            enter: function (el, done) {
+                Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+                Velocity(el, { fontSize: '1em' }, { complete: done })
+            },
+            leave: function (el, done) {
+                Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+                Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+                Velocity(el, {
+                    rotateZ: '45deg',
+                    translateY: '30px',
+                    translateX: '30px',
+                    opacity: 0
+                }, { complete: done })
+            }
+        }
+    });
+</script>
+</body>
+</html>
