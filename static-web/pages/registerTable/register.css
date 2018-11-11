@@ -1,0 +1,41 @@
+/*html选择器*/
+h2 {
+color: gray;
+font: bold 20px 幼圆;
+}
+/*class类选择器*/
+.registerTable {
+width: 550px;
+border: none;
+}
+/*class类选择器 + html选择器*/
+.registerTable td {
+height: 50px;
+border: none;
+}
+/*class类选择器*/
+.registerMessage {
+color: gray;
+font: bold 14px 微软雅黑;
+}
+/*class类选择器*/
+.registerText {
+color: silver;
+width: 300px;
+font: bold 14px 微软雅黑;
+padding: 8px 10px 8px 10px;
+border: silver 1px solid;
+cursor: hand;
+}
+/*class类选择器*/
+.registerButton {
+color: white;
+width: 325px;
+height: 40px;
+font: bold 16px 微软雅黑;
+padding: 2px 20px 0px 20px;
+border: orange 1px solid;
+margin-left: 90px;
+cursor: hand;
+background: orange;
+}
