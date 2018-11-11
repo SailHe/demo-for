@@ -6,11 +6,19 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Created by 魔诃不思议 on 2017/7/12.
- * double 累加会出现偏差：题目Gauß in Elementary School
+ * Descriptions: Created by 魔诃不思议 on 2017/7/12.<p>
+ * double 累加会出现偏差：题目 Gauß in Elementary School
+ *
+ * @author SailHe
+ * @date 2018/11/11 18:50
  */
-public class myNumber {
-    /* 任意范围内的随机数 */
+public class MyNumber_ {
+    /**
+     * Descriptions: 任意范围内的随机数<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 18:50
+     */
     public static int randomRange(int min, int max) {
         return min + new Random().nextInt(max - min);
     }
@@ -19,7 +27,12 @@ public class myNumber {
         return new Random().nextDouble();
     }
 
-    /*判断数字是否属于该区间[]*/
+    /**
+     * Descriptions: 判断数字是否属于该区间[]<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 18:49
+     */
     public static boolean isInRange(int left, int num, int right) {
         return left <= num && num <= right;
     }
@@ -36,38 +49,61 @@ public class myNumber {
         x[b] = t;
     }
 
-    /*任意底数对数*/
+    /**
+     * Descriptions: 任意底数对数<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 18:48
+     */
     public static double log(double base, double value) {
         return Math.log(value) / Math.log(base);
     }
 
-    //任意数阶乘的位数
+    /**
+     * Descriptions: 任意数阶乘的位数<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 18:48
+     */
     public static double factDigit(int x) {
         double ans = 1;
-        for (int i = 1; i <= x; i++)
+        for (int i = 1; i <= x; i++) {
             ans += log(10, i);
+        }
         return (int) ans;
     }
 
-    /* 快速幂求余算法 》》输入a,k,m,求a^k%m) */
+    /**
+     * Descriptions: 快速幂求余算法 》》输入a,k,m,求a^k%m)<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 18:48
+     */
     static long quickPower(long a, long k, long m) {
         long ans = 1;
         while (k > 0) {
-            if (k % 2 == 1)
+            if (k % 2 == 1) {
                 ans = a * ans % m;
+            }
             a = a * a % m;
             k /= 2;
         }
         return ans;
     }
 
-    /*返回一个斐波那契大数数组对象*/
+    /**
+     * Descriptions: 返回一个斐波那契大数数组对象<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 18:49
+     */
     public static BigInteger[] fibonacci(int MAXN) {
         BigInteger[] F = new BigInteger[MAXN];
         F[1] = BigInteger.valueOf(1);
         F[2] = BigInteger.valueOf(2);
-        for (int n = 3; n < MAXN; n++)
+        for (int n = 3; n < MAXN; n++) {
             F[n] = F[n - 1].add(F[n - 2]);
+        }
         return F;
     }
 
@@ -79,9 +115,14 @@ public class myNumber {
         return a > b ? a : b;
     }
 
-    /* 抛物线y = ax^2 + bx + c 与 直线y = kx+t 交于p2, p3两点， p1是抛物线顶点 积分求面积 */
-    /*注意Point传过来的有可能是int*/
-    /* 1/3ax^3 + 1/2(b-k)x^2 + (c-t)x |X2-X3 */
+    /**
+     * Descriptions: 抛物线y = ax^2 + bx + c 与 直线y = kx+t 交于p2, p3两点， p1是抛物线顶点 积分求面积<p>
+     * 注意Point传过来的有可能是int
+     * 1/3ax^3 + 1/2(b-k)x^2 + (c-t)x |X2-X3
+     *
+     * @author SailHe
+     * @date 2018/11/11 18:49
+     */
     public static double areaParabolaLine(Point p1, Point p2, Point p3) {
         /*
         double a = (double)(p2.y - p1.y) / (double)((p1.x - p2.x) * (p1.x - p2.x));

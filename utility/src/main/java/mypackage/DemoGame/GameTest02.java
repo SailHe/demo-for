@@ -26,19 +26,26 @@ public class GameTest02 extends JFrame {
      */
     void init() {
 
-        setBounds(100, 100, 400, 300);//设置窗口的大小及位置。
-        setTitle("GameTest 窗口！");//设置窗口标题
-        setVisible(true);//显示窗口
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//窗口退出！
+        //设置窗口的大小及位置。
+        setBounds(100, 100, 400, 300);
+        //设置窗口标题
+        setTitle("GameTest 窗口！");
+        //显示窗口
+        setVisible(true);
+        //窗口退出！
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         draw();
     }
 
     @Override
     public void paint(Graphics g) {
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());//设置背景色。
-        g.setColor(Color.red);//设置画笔的颜色。
-        g.fillRect(x, y, width, height);//画方形
+        //设置背景色。
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        //设置画笔的颜色。
+        g.setColor(Color.red);
+        //画方形
+        g.fillRect(x, y, width, height);
 
     }
 

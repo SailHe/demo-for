@@ -21,7 +21,8 @@ public class FrameDemo {
 
         f = new Frame("my freame");
         f.setBounds(300, 100, 600, 500);
-        f.setLayout(new FlowLayout());  //采用流式布局
+        //采用流式布局
+        f.setLayout(new FlowLayout());
 
         but = new Button("my button");
         //将组件添加到 frame中

@@ -47,18 +47,19 @@ class MySquare {
 class Fourprism extends MySquare {
     private int height;
 
-    public Fourprism(){}
+    public Fourprism() {
+    }
 
-    public Fourprism(int height){
+    public Fourprism(int height) {
         this.height = height;
     }
 
-    public int volume(){
-        return area()*height;
+    public int volume() {
+        return area() * height;
     }
 }
 
-interface IShape{
+interface IShape {
     void draw();
 }
 
@@ -68,29 +69,34 @@ abstract class TTT implements IShape {
 
 class MyCube implements IShape {
     private int height;
+
     @Override
-    public void draw(){
+    public void draw() {
         System.out.println("draw a cube");
     }
-    public MyCube(){}
-    public MyCube(int height){
+
+    public MyCube() {
+    }
+
+    public MyCube(int height) {
         this.height = height;
     }
-    public int valume(){
-        return height*height*height;
+
+    public int valume() {
+        return height * height * height;
     }
 }
 
 class Triangle implements IShape {
     @Override
-    public void draw(){
+    public void draw() {
         System.out.println("Triangle Draw");
     }
 }
 
 class Circle implements IShape {
     @Override
-    public void draw(){
+    public void draw() {
         System.out.println("Circle Draw");
     }
 }
@@ -111,8 +117,9 @@ public class TestForJava {
         }
     };
 
-    abstract static class Nackame{
+    abstract static class Nackame {
         private int a;
+
         abstract void test();
     }
 
@@ -181,17 +188,17 @@ public class TestForJava {
     }
 }
 
-class Temp_11_7{
+class Temp_11_7 {
     private int a;
 
     public static boolean fun(int x) {
-        return 3 + x*x > 5*(x + 3)-1&&(x-3>5);
+        return 3 + x * x > 5 * (x + 3) - 1 && (x - 3 > 5);
     }
 
-    public static void fun1(){
+    public static void fun1() {
         int gcd, k;
-        for(gcd = 3, k=2; k <= 18; ++k){
-            if(12%k==0 && 16%k ==0)
+        for (gcd = 3, k = 2; k <= 18; ++k) {
+            if (12 % k == 0 && 16 % k == 0)
                 gcd = k;
         }
         System.out.println();
@@ -204,7 +211,7 @@ class Temp_11_7{
         System.out.println("基本类型的未初始化时的默认值 a");
 
         int i = 2, sum = 0;
-        while(i < 101){
+        while (i < 101) {
             sum += i;
             i += 2;
         }
@@ -214,7 +221,7 @@ class Temp_11_7{
     }
 }
 
-class Color{
+class Color {
     private byte red, green, blue;
 
     public Color(byte red, byte green, byte blue) {
@@ -224,7 +231,7 @@ class Color{
     }
 }
 
-abstract class Graphics{
+abstract class Graphics {
     private Color color;
 
     public Graphics(Color color) {
@@ -233,6 +240,7 @@ abstract class Graphics{
 
     //返回面积
     public abstract double getArea();
+
     //返回周长
     public abstract double getPerimeter();
 }
@@ -253,13 +261,13 @@ class Rectangle extends Graphics {
 
     @Override
     public double getPerimeter() {
-        return 2*(width+height);
+        return 2 * (width + height);
     }
 }
 
-class Test{
+class Test {
     public static void main(String[] args) {
-        Color colorRed = new Color((byte)255, (byte)0, (byte)0);
+        Color colorRed = new Color((byte) 255, (byte) 0, (byte) 0);
         double w = 50, h = 100;
         Rectangle rectangle = new Rectangle(w, h, colorRed);
         System.out.println("面积 = " + rectangle.getArea());

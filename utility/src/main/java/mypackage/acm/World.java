@@ -11,6 +11,7 @@ class Year implements Say {
         this.year = year;
     }
 
+    @Override
     public Blessing say(String word) {
         System.out.printf(word);
         return new Blessing(year);
@@ -41,6 +42,7 @@ class Point implements Shape {
         this.y = y;
     }
 
+    @Override
     public void draw() {
         System.out.println("点类Draw " + x + " " + y);
     }
@@ -55,6 +57,7 @@ class Line implements Shape {
         this.length = length;
     }
 
+    @Override
     public void draw() {
         System.out.println("线类Draw");
     }
@@ -69,16 +72,23 @@ class Circle implements Shape {
         this.radius = radius;
     }
 
+    @Override
     public void draw() {
         System.out.println("圆类Draw");
     }
 }
 
-/*线程测试*/
+/**
+ * Descriptions: 线程测试<p>
+ *
+ * @author SailHe
+ * @date 2018/11/11 17:57
+ */
 class Hello implements Runnable {
     private int i = 0;
     private boolean timeToQuit = false;
 
+    @Override
     public void run() {
         while (!timeToQuit) {
             System.out.println(Thread.currentThread().getName() +"优先级:"+ Thread.currentThread().getPriority() + " Hello" + i);
@@ -106,7 +116,12 @@ class Hello implements Runnable {
 class LiftOff implements Runnable{
     protected int countDown = 10;
     private static int taskCount = 0;
-    //标识符id可以用来区分任务的多个实例，它是final的，因为它一旦被初始化之后就不希望被修改。
+    /**
+     * Descriptions: 标识符id可以用来区分任务的多个实例，它是final的，因为它一旦被初始化之后就不希望被修改。<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 17:58
+     */
     private final int id = taskCount++;
 
     public LiftOff(){}
@@ -119,11 +134,15 @@ class LiftOff implements Runnable{
         return "#"+id+"("+
                 (countDown > 0 ? countDown : "LiftOff") + "), ";
     }
-    /*
-    * 任务的run（）方法通常总会有某种形式的循环，使得任务一直运行下去直到不再需要，所以
-    * 要设定跳出循环的条件（有一种选择是直接从run（）返回）。通常， ·run（）被写成无限循环的形式，
-    * 这就意味着，除非有某个条件使得run（）终止，否则它将永远运持下去
-    * */
+    /**
+     * Descriptions: 任务的run（）方法通常总会有某种形式的循环，使得任务一直运行下去直到不再需要，所以
+     * 要设定跳出循环的条件（有一种选择是直接从run（）返回）。通常， ·run（）被写成无限循环的形式，
+     * 这就意味着，除非有某个条件使得run（）终止，否则它将永远运持下去<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 17:58
+     */
+    @Override
     public void run() {
         while(countDown-- > 0){
             System.out.println(status());
@@ -138,6 +157,12 @@ class LiftOff implements Runnable{
     }
 }
 
+/**
+ * Descriptions: 游乐场<p>
+ *
+ * @author SailHe
+ * @date 2018/11/11 17:59
+ */
 public class World {
     public static void main(String[] args) throws Exception {
         /*第一次*//*
@@ -153,8 +178,7 @@ public class World {
         Shape circle =  new Circle(p, 101);
         circle.draw();*/
 
-        /*Thread */
-
+        //Thread
         Thread t = new Thread(new LiftOff());
         t.start();
         System.out.println("Waiting for LiftOff");
@@ -178,8 +202,9 @@ public class World {
         t2.start();
         System.out.println("stop Thread t in main");
         h.stopRunning();
+        int maxCnt = 100;
         //for test
-        while (i < 100) {
+        while (i < maxCnt) {
             System.out.println("Good Morning" + i++);
             /*if( i == 2 && t.isAlive()){
                 System.out.println("Main waiting for Hello!");

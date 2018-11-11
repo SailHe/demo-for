@@ -1,6 +1,6 @@
 package mypackage.DemoGame;
 
-import mypackage.myNumber;
+import mypackage.MyNumber_;
 
 public class human extends biology {
     private int VIT;//耐力--微增魔限   微增魔/物防(def) 血(hp)
@@ -27,7 +27,7 @@ public class human extends biology {
     }
 
     void Special(int prob) {
-        if (myNumber.randomRange(1, prob) == 5) {
+        if (MyNumber_.randomRange(1, prob) == 5) {
             this.VIT = 1;
             this.INT = 5;
             this.LUK = 5;

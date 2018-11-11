@@ -8,6 +8,7 @@ import java.util.Date;
  * Description: 日期时间生成器类<p>
  * 构造器(String, Long, Date)
  * 转换器(String, Long, Date)<p>
+ *
  * @author: SailHe
  * @date: 2018/4/3 14:47
  */
@@ -22,11 +23,11 @@ public class DateGenerator {
      * @author SailHe
      * @date 2018/4/3 16:42
      */
-    public void setFormat(SimpleDateFormat dateFormat){
+    public void setFormat(SimpleDateFormat dateFormat) {
         dateFormatBuffer = dateFormat;
     }
 
-    public DateGenerator(String date){
+    public DateGenerator(String date) {
         try {
             buffer = dateFormatBuffer.parse(date);
         } catch (ParseException e) {
@@ -34,11 +35,11 @@ public class DateGenerator {
         }
     }
 
-    public DateGenerator(Date date){
+    public DateGenerator(Date date) {
         buffer = date;
     }
 
-    public DateGenerator(Long date){
+    public DateGenerator(Long date) {
         buffer = new Date(date);
     }
 
@@ -47,11 +48,11 @@ public class DateGenerator {
         return dateFormatBuffer.format(buffer);
     }
 
-    public Date toDate(){
+    public Date toDate() {
         return buffer;
     }
 
-    public Long toLong(){
+    public Long toLong() {
         return buffer.getTime();
     }
 

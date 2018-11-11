@@ -65,7 +65,7 @@ public class GuiDemo {
         f.setSize(500, 400);
         f.setLocation(300, 200);
         f.setLayout(new FlowLayout());
-        f.setFont(new Font("宋体",Font.ITALIC|Font.BOLD,20));
+        f.setFont(new Font("宋体", Font.ITALIC | Font.BOLD, 20));
 
         Button b = new Button("i am a button, 你好world");
 
@@ -79,8 +79,14 @@ public class GuiDemo {
 
 }
 
-//因为接口WindowLinstener中的所有方法都被子类 WindowAdapter实现了,.
-//并且覆盖了其中的所有方法,那么我们只能继承 WindowAdapter 覆盖我们的方法即可
+/**
+ * Descriptions: 因为接口WindowLinstener中的所有方法都被子类 WindowAdapter实现了,
+ * 并且覆盖了其中的所有方法,那么我们只能继承 WindowAdapter 覆盖我们的方法即可
+ * <p>
+ *
+ * @author SailHe
+ * @date 2018/11/11 18:54
+ */
 class MyWin extends WindowAdapter {
 
     @Override

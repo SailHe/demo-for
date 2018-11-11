@@ -1,6 +1,6 @@
 package mypackage.DemoGame;
 
-import mypackage.myNumber;
+import mypackage.MyNumber_;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ class Main {
             for (int i = 0; i < max; i++) {
                 System.out.println("\n你向" + where[direction] + "走的第" + (i + 1) + "步");
 
-                if (myNumber.randomRange(0, 4) == 2) {
+                if (MyNumber_.randomRange(0, 4) == 2) {
                     people = new human(id++);
                     if (direction == 2) {
                         System.out.println("你正向下走");
@@ -96,7 +96,7 @@ class Main {
 
         System.out.println("输入指令0开始游戏");
         Scanner in = new Scanner(System.in);
-        int od = myNumber.input(in);
+        int od = MyNumber_.input(in);
         if (od == 0) {
             System.out.println("游戏开始!!!");
             human hero = new human(id++);
@@ -104,6 +104,6 @@ class Main {
             System.out.println(hero);
         }
         System.out.println("需输入两条指令\n" + "2(上),8(下),4(左),6(右)" + "\n步数");
-        order(myNumber.input(in), myNumber.input(in));
+        order(MyNumber_.input(in), MyNumber_.input(in));
     }
 }

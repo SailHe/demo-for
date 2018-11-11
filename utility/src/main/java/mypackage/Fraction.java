@@ -3,8 +3,11 @@ package mypackage;
 import java.util.Scanner;
 
 /**
- * 分数类
+ * Descriptions: 分数类<p>
  * Created by 魔诃不思议 on 2017/7/10.
+ *
+ * @author SailHe
+ * @date 2018/11/11 18:51
  */
 public class Fraction {
     /**
@@ -75,8 +78,9 @@ public class Fraction {
     }
 
     public double toDouble() throws Exception {
-        if (dw == 0)
+        if (dw == 0) {
             throw new Exception();
+        }
         return this.up / this.dw;
     }
 }
