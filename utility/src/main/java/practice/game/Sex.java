@@ -21,6 +21,6 @@ package practice.game;
  * The term API stands for Application Programming Interface.
  * 术语API是指 应用程序编程接口
  */
-enum sex {
+enum Sex {
     man, woman, unknown;
 }

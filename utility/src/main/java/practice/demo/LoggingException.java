@@ -1,4 +1,4 @@
-package practice.game;
+package practice.demo;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

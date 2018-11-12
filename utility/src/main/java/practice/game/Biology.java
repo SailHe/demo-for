@@ -1,17 +1,17 @@
 package practice.game;
 
-import practice.MyNumber_;
+import practice.util.MyNumber;
 
 import java.awt.*;
 
 /**
- * Description: 无描述类<p>
+ * Description: 生物类<p>
  *
- * @Package: mypackage.DemoGame
+ * @Package: practice.DemoGame
  * @author: SailHe
  * @date: 2018/5/29 12:37
  */
-class biology {
+class Biology {
     /**
      * Descriptions: 仅人物继承使用<==>天赋<p>
      *
@@ -22,15 +22,15 @@ class biology {
     int high, weight;
     int skin;
     int speed;
-    sex male = sex.unknown;
+    Sex male = Sex.unknown;
     Point position;
 
-    biology() {
+    Biology() {
         //{VIT, INT, STR, LUK, AGI}
         dna = new int[5];
         for (int i = 0; i < 5; i++) {
-            dna[i] = MyNumber_.randomRange(0, 4);
+            dna[i] = MyNumber.randomRange(0, 4);
         }
-        this.male = sex.values()[MyNumber_.randomRange(0, 2)];
+        this.male = Sex.values()[MyNumber.randomRange(0, 2)];
     }
 }

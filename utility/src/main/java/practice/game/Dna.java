@@ -6,11 +6,11 @@ package practice.game;
  * @author SailHe
  * @date 2018/11/11 18:46
  */
-class DNA implements Comparable<DNA> {
+class Dna implements Comparable<Dna> {
     String s;
     public int value;
 
-    DNA(String s) {
+    Dna(String s) {
         this.s = s;
         for (int i = 0; i < s.length(); i++) {
             for (char cc : s.substring(i + 1).toCharArray()) {
@@ -26,7 +26,7 @@ class DNA implements Comparable<DNA> {
      * @date 2018/11/12 16:37
      */
     @Override
-    public int compareTo(DNA o) {
+    public int compareTo(Dna o) {
         return this.value - o.value;
     }
 

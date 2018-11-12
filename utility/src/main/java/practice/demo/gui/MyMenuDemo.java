@@ -1,4 +1,4 @@
-package practice.game;
+package practice.demo.gui;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

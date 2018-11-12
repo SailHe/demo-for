@@ -1,4 +1,4 @@
-package practice.game;
+package practice.demo.gui;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,13 +8,17 @@ import java.awt.event.WindowEvent;
 
 public class FrameDemo {
 
-    //定义该图像中所需要的组件的引用
+    /**
+     * Descriptions: 定义该图像中所需要的组件的引用<p>
+     *
+     * @author SailHe
+     * @date 2018/11/12 17:00
+     */
     private Frame f;
     private Button but;
 
     FrameDemo() {
         init();
-
     }
 
     public void init() {

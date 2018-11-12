@@ -1,4 +1,4 @@
-package practice.game;
+package practice.demo.gui;
 
 import javax.swing.*;
 import java.awt.*;

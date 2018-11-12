@@ -18,7 +18,7 @@ interface ServiceFactory {
 }
 
 /**
- * one implements of mypackage.Template.implementations1
+ * one implements of practice.Template.implementations1
  * 用于实现接口
  */
 class implementations1 implements Service {

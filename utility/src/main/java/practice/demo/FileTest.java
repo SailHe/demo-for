@@ -1,9 +1,15 @@
-package practice.game;
+package practice.demo;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+/**
+ * Descriptions: 文件测试<p>
+ *
+ * @author SailHe
+ * @date 2018/11/12 17:09
+ */
 public class FileTest {
     public static void main(String[] args) {
         File file = new File("mnt/sdcard/external_sd/SJ_save.txt");

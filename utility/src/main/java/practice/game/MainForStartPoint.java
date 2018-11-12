@@ -1,34 +1,35 @@
 package practice.game;
 
-import practice.MyNumber_;
+import practice.util.MyNumber;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Scanner;
 
 /**
- * Description: 无描述类<p>
+ * Description: EveryThing Start<p>
+ * 高三写的, 是一切的起点
  *
- * @Package: mypackage.DemoGame
+ * @Package: practice.DemoGame
  * @author: SailHe
  * @date: 2018/5/29 12:37
  */
-class Main {
+class MainForStartPoint {
     private static int id = 0;
 
     private static void order(int direction, int max) {
-        final String where[] = {"0", "1", "上", "3", "左", "5", "右", "7", "8下"};
+        final String[] where = {"0", "1", "上", "3", "左", "5", "右", "7", "8下"};
 
         if (direction != 2 & direction != 8 & direction != 4 & direction != 6) {
             System.out.println("指令错误!请重新输入!");
         } else {
 
-            human people;
+            Human people;
             for (int i = 0; i < max; i++) {
                 System.out.println("\n你向" + where[direction] + "走的第" + (i + 1) + "步");
 
-                if (MyNumber_.randomRange(0, 4) == 2) {
-                    people = new human(id++);
+                if (MyNumber.randomRange(0, 4) == 2) {
+                    people = new Human(id++);
                     if (direction == 2) {
                         System.out.println("你正向下走");
                     } else if (direction == 8) {
@@ -96,14 +97,14 @@ class Main {
 
         System.out.println("输入指令0开始游戏");
         Scanner in = new Scanner(System.in);
-        int od = MyNumber_.input(in);
+        int od = MyNumber.input(in);
         if (od == 0) {
             System.out.println("游戏开始!!!");
-            human hero = new human(id++);
+            Human hero = new Human(id++);
             System.out.println("人物创建成功");
             System.out.println(hero);
         }
         System.out.println("需输入两条指令\n" + "2(上),8(下),4(左),6(右)" + "\n步数");
-        order(MyNumber_.input(in), MyNumber_.input(in));
+        order(MyNumber.input(in), MyNumber.input(in));
     }
 }
