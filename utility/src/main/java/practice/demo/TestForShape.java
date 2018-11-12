@@ -1,0 +1,193 @@
+package practice.demo;
+
+import java.util.EmptyStackException;
+
+abstract class AbTester {
+    int a;
+
+    AbTester(double par) {
+        a = Double.valueOf(par).intValue();
+        System.out.println("AbTest构造");
+    }
+
+    AbTester(int par) {
+        //调用double构造方法
+        this(Double.valueOf(par));
+    }
+
+    void setA(int a) {
+        this.a = a;
+    }
+
+    public abstract int getA();
+}
+
+class MySquare {
+    protected int w;
+
+    MySquare() {
+    }
+
+    MySquare(int w) {
+        this.w = w;
+    }
+
+    int length() {
+        return 4 * w;
+    }
+
+    int area() {
+        return w * w;
+    }
+}
+
+class Fourprism extends MySquare {
+    private int height;
+
+    public Fourprism() {
+    }
+
+    public Fourprism(int height) {
+        this.height = height;
+    }
+
+    public int volume() {
+        return area() * height;
+    }
+}
+
+
+interface Shape {
+    void draw();
+}
+
+/**
+ * Descriptions: 抽象形状类<p>
+ *
+ * @author SailHe
+ * @date 2018/11/12 16:55
+ */
+abstract class AbShape implements Shape {
+
+}
+
+class MyCube implements Shape {
+    private int height;
+
+    @Override
+    public void draw() {
+        System.out.println("draw a cube");
+    }
+
+    public MyCube() {
+    }
+
+    public MyCube(int height) {
+        this.height = height;
+    }
+
+    public int valume() {
+        return height * height * height;
+    }
+}
+
+class Triangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Triangle Draw");
+    }
+}
+
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Circle Draw");
+    }
+}
+
+/**
+ * Description: 形状测试类<p>
+ *
+ * @Package: practice
+ * @author: SailHe
+ * @date: 2018/7/3 10:14
+ */
+public class TestForShape {
+
+    private AbTester abTester = new AbTester(10) {
+        @Override
+        public int getA() {
+            return a;
+        }
+    };
+
+    abstract static class Nackame {
+        private int a;
+
+        abstract void test();
+    }
+
+    TestForShape() {
+        System.out.println("TestForShape 构造");
+    }
+
+    public static void main(String[] args) {
+        //JSON;
+        MySquare mySquare = new MySquare(10);
+        mySquare.area();
+        Nackame nnn = new Nackame() {
+            @Override
+            void test() {
+
+            }
+        };
+        TestForShape testForShape = new TestForShape();
+        AbTester abTester = new AbTester(1) {
+            @Override
+            public int getA() {
+                return a;
+            }
+        };
+        int a[] = new int[5];
+        int b[] = {0, 1, 2};
+        int c[];
+        Number x = new Integer(12);
+        x.intValue();
+        ((Integer) x).compareTo(2);
+
+        Number y = new Double(12);
+        y.intValue();
+        ((Double) y).compareTo(1.1);
+
+        int[][] d = new int[10][];
+
+        abTester.setA(10);
+        Integer n1 = new Integer(3);
+        Object n2 = new Integer(4);
+        int a$ = -1;
+        String s = "000ll";
+
+        int array1[] = {0, 1};
+        int array2[] = new int[2];
+        array2 = array1;
+        String str = new String("java");
+        int index = str.indexOf('a');
+        str.concat(" world");
+        System.out.println(str);
+
+        try {
+            if (true) {
+                throw new EmptyStackException();
+            } else {
+                throw new NullPointerException("1");
+            }
+        } catch (EmptyStackException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        System.out.println(s + a$);
+        //System.out.println(n1.compareTo(n2));
+        //System.out.println(n2.compareTo(n1));
+    }
+}
