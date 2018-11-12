@@ -1,46 +1,9 @@
-package practice.demo;
+package practice.demo.playground;
 
 import practice.demo.shape.MyCircle;
 import practice.demo.shape.MyLine;
 import practice.demo.shape.MyPoint;
 import practice.demo.shape.MyShape;
-
-
-interface Say {
-    Blessing say(String word);
-}
-
-/**
- * Descriptions: 年份<p>
- *
- * @author SailHe
- * @date 2018/11/12 19:20
- */
-class Year implements Say {
-    String year;
-
-    public Year(String year) {
-        this.year = year;
-    }
-
-    @Override
-    public Blessing say(String word) {
-        System.out.printf(word);
-        return new Blessing(year);
-    }
-}
-
-class Blessing {
-    String blessing;
-
-    public Blessing(String blessing) {
-        this.blessing = blessing;
-    }
-
-    void realize() {
-        System.out.println(blessing);
-    }
-}
 
 
 /**
@@ -50,7 +13,7 @@ class Blessing {
  * @author: SailHe
  * @date: 2018/11/12 19:18
  */
-public class Playground {
+public class Playgrounder {
     public static void main(String[] args) {
         /*第一次*/
         Say happy = new Year("2018");
