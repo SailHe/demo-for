@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
  * 用图形的方式,来显示计算机操作的界面,这样更方便更直观.
  * <p>
  * CLI
- * Command Line User Interface(命令行用户接口)
+ * Command MyLine User Interface(命令行用户接口)
  * 就是常用的Dos命令行操作.
  * 需要记忆一些常用的命令.操作更直观.
  * <p>

@@ -1,4 +1,4 @@
-package practice.demo;
+package practice.demo.test;
 
 /**
  * Description: 继承测试<p>

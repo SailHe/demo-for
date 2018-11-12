@@ -1,4 +1,4 @@
-                            《程序員真正的工作是思考——思考解決方案——代碼只是副產品。》
+#                            《程序員真正的工作是思考——思考解決方案——代碼只是副產品。》
 
 System.out.println(in.nextBigDecimal().add(in.nextBigDecimal()).stripTrailingZeros().toPlainString());
 任何static对象都是在初次使用时（extends，访问域等等）以代码的顺序加载并依次初始化的

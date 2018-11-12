@@ -1,4 +1,7 @@
-package practice.demo;
+package practice.demo.test;
+
+import practice.demo.shape.MySquare;
+import practice.demo.shape.MyShape;
 
 import java.util.EmptyStackException;
 
@@ -22,44 +25,6 @@ abstract class AbTester {
     public abstract int getA();
 }
 
-class MySquare {
-    protected int w;
-
-    MySquare() {
-    }
-
-    MySquare(int w) {
-        this.w = w;
-    }
-
-    int length() {
-        return 4 * w;
-    }
-
-    int area() {
-        return w * w;
-    }
-}
-
-class Fourprism extends MySquare {
-    private int height;
-
-    public Fourprism() {
-    }
-
-    public Fourprism(int height) {
-        this.height = height;
-    }
-
-    public int volume() {
-        return area() * height;
-    }
-}
-
-
-interface Shape {
-    void draw();
-}
 
 /**
  * Descriptions: 抽象形状类<p>
@@ -67,42 +32,8 @@ interface Shape {
  * @author SailHe
  * @date 2018/11/12 16:55
  */
-abstract class AbShape implements Shape {
+abstract class AbMyShape implements MyShape {
 
-}
-
-class MyCube implements Shape {
-    private int height;
-
-    @Override
-    public void draw() {
-        System.out.println("draw a cube");
-    }
-
-    public MyCube() {
-    }
-
-    public MyCube(int height) {
-        this.height = height;
-    }
-
-    public int valume() {
-        return height * height * height;
-    }
-}
-
-class Triangle implements Shape {
-    @Override
-    public void draw() {
-        System.out.println("Triangle Draw");
-    }
-}
-
-class Circle implements Shape {
-    @Override
-    public void draw() {
-        System.out.println("Circle Draw");
-    }
 }
 
 /**
