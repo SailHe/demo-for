@@ -1,6 +1,6 @@
 package mypackage.Template;
 
-import mypackage.MyString;
+import mypackage.util.MyString;
 
 import java.util.ArrayList;
 
@@ -20,26 +20,32 @@ import java.util.ArrayList;
  * 数组：保存一组有固定尺寸的基本数据类型
  * */
 
-class Apple{
+class Apple {
     private static long counter;
     private final long id = counter++;
-    public long id(){
+
+    public long id() {
         return id;
     }
 }
 
-class Orange{
+class Orange {
     int id;
 }
 
 public class Structures {
-    //抑制警告信息:不受检查的异常
+    /**
+     * Descriptions: 抑制警告信息:不受检查的异常<p>
+     *
+     * @author SailHe
+     * @date 2018/11/11 19:01
+     */
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         ArrayList myStringList = new ArrayList();
         for (int i = 0; i < 3; i++) {
             myStringList.add(new MyString());
-            ((MyString)myStringList.get(i)).value = new char[]{1321};
+            ((MyString) myStringList.get(i)).value = new char[]{1321};
         }
         myStringList.add(new Apple());
         myStringList.add(new Orange());

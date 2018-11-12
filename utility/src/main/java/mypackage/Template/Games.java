@@ -11,29 +11,37 @@ interface GameFactory {
 }
 
 /**
- * 骰子dice
+ * Descriptions: 骰子dice
  * 硬币coin
- * 投掷
+ * 投掷<p>
+ *
+ * @author SailHe
+ * @date 2018/11/11 19:00
  */
-interface gamePointThrow {
+interface GamePointThrow {
     int nextPoint();
 }
 
-interface gamePointThrowFactory {
-    gamePointThrow getGame();
+interface GamePointThrowFactory {
+    GamePointThrow getGame();
 }
 
 /**
- * A Games Framework using factory Methods
+ * Descriptions: A Games Framework using factory Methods<p>
+ *
+ * @author SailHe
+ * @date 2018/11/11 19:00
  */
 public class Games {
     public static void playGame(GameFactory Factory) {
         Game s = Factory.getGame();
-        while (s.move()) ;
+        while (s.move()) {
+            ;
+        }
     }
 
-    public static void playTrowGame(gamePointThrowFactory factory) {
-        gamePointThrow s = factory.getGame();
+    public static void playTrowGame(GamePointThrowFactory factory) {
+        GamePointThrow s = factory.getGame();
         System.out.println(s.nextPoint());
     }
 
@@ -45,7 +53,7 @@ public class Games {
     }
 }
 
-class dice implements gamePointThrow {
+class dice implements GamePointThrow {
     @Override
     public int nextPoint() {
         System.out.println("Your dice point is:");
@@ -53,14 +61,14 @@ class dice implements gamePointThrow {
     }
 }
 
-class diceFactory implements gamePointThrowFactory {
+class diceFactory implements GamePointThrowFactory {
     @Override
-    public gamePointThrow getGame() {
+    public GamePointThrow getGame() {
         return new dice();
     }
 }
 
-class coin implements gamePointThrow {
+class coin implements GamePointThrow {
     @Override
     public int nextPoint() {
         int point = new Random().nextInt(2);
@@ -69,9 +77,9 @@ class coin implements gamePointThrow {
     }
 }
 
-class coinFactory implements gamePointThrowFactory {
+class coinFactory implements GamePointThrowFactory {
     @Override
-    public gamePointThrow getGame() {
+    public GamePointThrow getGame() {
         return new coin();
     }
 }

@@ -1,5 +1,4 @@
-package mypackage;
-
+package mypackage.util;
 
 /**
  * Descriptions: Created by 魔诃不思议 on 2017/7/21.<p>
@@ -11,7 +10,6 @@ public class MyString implements Comparable<MyString> {
     public char[] value;
 
     public MyString() {
-
     }
 
     public MyString(String value) {
