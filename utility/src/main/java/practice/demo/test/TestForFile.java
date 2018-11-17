@@ -12,6 +12,25 @@ import java.io.FileOutputStream;
  */
 public class TestForFile {
     public static void main(String[] args) {
+
+        /**
+         * Descriptions: 在控制台输出当前目录的文件列表<p>
+         *
+         * @author SailHe
+         * @date 2018/11/12 22:07
+         */
+        File dir = new File("./");
+        File[] fileS = dir.listFiles();
+        for (int i = 0; i < fileS.length; ++i) {
+            System.out.println(fileS[i].getName());
+        }
+
+        /**
+         * Descriptions: 若存在则新建 否则删除<p>
+         *
+         * @author SailHe
+         * @date 2018/11/12 22:09
+         */
         File file = new File("./SJ_save.txt");
         if (file.exists()) {
             file.delete();
