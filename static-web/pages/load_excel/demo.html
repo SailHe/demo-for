@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Js Excel</title>
+    <script src="./dependence/xlsx/xlsx.full.min.js"></script>
+</head>
+<body>
+<input type="file" onchange="importFile(this)"/>
+<div id="demo"></div>
+<script>
+    /**
+     * FileReader共有4种读取方法：
+     * 1.readAsArrayBuffer(file)：将文件读取为ArrayBuffer。
+     * 2.readAsBinaryString(file)：将文件读取为二进制字符串
+     * 3.readAsDataURL(file)：将文件读取为Data URL
+     * 4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
+     *
+     * @author：以为是书生; SailHe
+     * @see https://www.jianshu.com/p/c84e8428e6b3
+     **/
+        //读取完成的数据
+    var wb;
+    // 是否将文件读取为二进制字符串
+    var rABS = false;
+    //Excel表格的json对象
+    var tableJsonList = null;
+
+    // 导入文件
+    function importFile(obj) {
+        if (!obj.files) {
+            return;
+        }
+        var f = obj.files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var data = e.target.result;
+            if (rABS) {
+                //手动转化
+                wb = XLSX.read(btoa(fixData(data)), {
+                    type: 'base64'
+                });
+            } else {
+                wb = XLSX.read(data, {
+                    type: 'binary'
+                });
+            }
+            //第一行的值(如果首行是表头的话)
+            //wb.Sheets[wb.SheetNames[0]]["A2"]["v"]
+            //wb.Sheets[wb.SheetNames[0]]["B2"]["v"]
+            //wb.Sheets[wb.SheetNames[0]]["C2"]["v"]
+
+            //wb.SheetNames[0]是获取Sheets中第一个Sheet的名字
+            //wb.Sheets[Sheet名]获取第一个Sheet的数据
+            tableJsonList = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+            document.getElementById("demo").innerHTML = JSON.stringify(tableJsonList);
+        };
+        if (rABS) {
+            reader.readAsArrayBuffer(f);
+        } else {
+            reader.readAsBinaryString(f);
+        }
+    }
+
+    // 文件流转BinaryString
+    function fixData(data) {
+        var o = "",
+            l = 0,
+            w = 10240;
+        for (; l < data.byteLength / w; ++l)
+            o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+
+    // 地理点数据结构
+    function PointGeographic() {
+        const args = arguments;
+        this.lng = -1;
+        this.lat = -1;
+        this.count = 0;
+        this.name = "unknown";
+
+        //引用类型
+        if (typeof args[0] === "object" && typeof args[0] !== "undefined") {
+
+            if (args[0] === null || args[0] === undefined) {
+                console.error('参数错误 at PointGeographic:  object=' + args[0] + '; \n');
+                debugger;
+            }
+
+            if (typeof args[0].lng !== "undefined") {
+                this.lng = args[0].lng;
+            }
+
+            if (typeof args[0].lat !== "undefined") {
+                this.lat = args[0].lat;
+            }
+
+        } else {
+
+            if (typeof args[0] === "string" && typeof args[1] === "undefined") {
+                //json constructor
+                var goodsSkuAttrJson = args[0];
+                if (goodsSkuAttrJson !== null) {
+                    try {
+                        var tempPointGeographic = JSON.parse(goodsSkuAttrJson);
+                        var volume = tempPointGeographic.lng;
+                        var taste = tempPointGeographic.lat;
+                        this.lng = volume === undefined ? '未知' : volume;
+                        this.lat = taste === undefined ? '未知' : taste;
+                    } catch (e) {
+                        console.error('JSON解析错误 at PointGeographic:  goodsSkuAttrJson=' + goodsSkuAttrJson + '; \n' + e);
+                        debugger;
+                    }
+                } else {
+                    console.error("参数Json字符串 为 null at PointGeographic");
+                    debugger;
+                }
+            } else {
+                if (typeof args[0] !== "undefined") {
+                    this.lng = args[0];
+                }
+
+                if (typeof args[1] !== "undefined") {
+                    this.lat = args[1];
+                }
+            }
+
+        }
+
+        //@Override toString方法的重写
+        PointGeographic.prototype.toString = function () {
+            return this.lng + this.count + this.lat;
+        }
+    }
+
+    /**
+     * Descriptions: 将表格中的数据转换为点对象数据<p>
+     *
+     * @author SailHe
+     * @date 2018/11/17 21:31
+     */
+    function toPointList() {
+        var pointList = new Array();
+        const len = tableJsonList.length;
+        for (let i = 0; i < len; ++i) {
+            pointList[i] = new PointGeographic();
+            pointList[i].name = tableJsonList[i].名称;
+            pointList[i].lng = tableJsonList[i].经度;
+            pointList[i].lat = tableJsonList[i].纬度;
+            pointList[i].count = tableJsonList[i].用户数;
+        }
+        console.log(JSON.stringify(pointList));
+    }
+</script>
+</body>
+</html>
