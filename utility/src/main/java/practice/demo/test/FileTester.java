@@ -1,4 +1,4 @@
-package org.demo;
+package practice.demo.test;
 
 import java.io.*;
 

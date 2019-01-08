@@ -1,8 +1,6 @@
-package org.demo;
+package practice.demo.test;
 
 import practice.util.SecureHashStandard;
-
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Description: 无描述类<p>
