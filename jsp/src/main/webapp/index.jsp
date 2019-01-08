@@ -30,6 +30,8 @@
 <a href="delete.jsp">清空表单所有内容</a></br>
 <a href="insert.jsp">插入一条记录(年龄随机)</a></br>
 <a href="update.jsp">更新最后一条的记录</a></br>
+<a href="uploadTest.jsp">上传图片</a></br>
+<a href="uploadTestWebUploader.jsp">上传图片</a></br>
 <%--tomcat 配置 after launch 取消勾 --%>
 <%!
     int number = 0;
