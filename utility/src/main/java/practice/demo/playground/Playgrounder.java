@@ -4,6 +4,9 @@ import practice.demo.shape.MyCircle;
 import practice.demo.shape.MyLine;
 import practice.demo.shape.MyPoint;
 import practice.demo.shape.MyShape;
+import practice.util.Assert;
+
+import java.util.*;
 
 
 /**
@@ -14,7 +17,27 @@ import practice.demo.shape.MyShape;
  * @date: 2018/11/12 19:18
  */
 public class Playgrounder {
+    private static void containerTest() {
+        Collection container;
+        // Map没有实现Collection
+        Map<Integer, Integer> m = new HashMap(10);
+        // 但set实现了
+        Set set = m.entrySet();
+        container = set;
+        container.iterator();
+        set.iterator();
+        // Collection
+        List<Integer> l = new LinkedList<Integer>();
+        l.add(1);
+        container = l;
+
+        Assert.isTrue(l.iterator().next().equals(container.iterator().next()), "迭代器内容相等");
+        Assert.isTrue(l.iterator().next() == container.iterator().next(), "迭代器地址相等");
+        Assert.isTrue(false, "错误测试");
+    }
+
     public static void main(String[] args) {
+        containerTest();
         /*第一次*/
         Say happy = new Year("2018");
         Blessing blessing = happy.say(" HelloWorldForThread World");
